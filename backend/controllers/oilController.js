@@ -1,5 +1,10 @@
+// import LoginSignUp from '../../frontend/src/components/loginSignUp/LoginSignUp';
+
 const oilModel = require('../models/oilModel');
+// const multer = require('multer')
 const mongoose = require('mongoose');
+// const upload = multer({dest:'/uplo ad/'})
+
 
 //get all oils
 const getAllOils = async(req,res)=>{
@@ -64,10 +69,15 @@ const updateanOil =async (req,res)=>{
     res.status(200).json(oil);
 }
 
+//Upload a image
+
+
+
 module.exports = {
     createNewOil,
     getAllOils,
     getanOil,
     deleteanOil,
-    updateanOil
+    updateanOil,
+    
 }

@@ -4,7 +4,8 @@ const {
     getAllOils,
     getanOil,
     deleteanOil,
-    updateanOil
+    updateanOil,
+    
 } = require('../controllers/oilController') 
 const router = express.Router();
 
@@ -23,5 +24,7 @@ router.delete('/:id',deleteanOil)
 //update a new oil
 router.patch('/:id',updateanOil)
 
+//login page
+// router.get('/login',login)
 
 module.exports = router;

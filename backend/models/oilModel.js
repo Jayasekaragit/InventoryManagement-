@@ -10,6 +10,10 @@ const oilSchema = new Schema({
     price:{
         type: String,
         required: true
+    },
+    img:{
+        type:String,
+        data:Buffer
     }
 },{timestamps:true})
 

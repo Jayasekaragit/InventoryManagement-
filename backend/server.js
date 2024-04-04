@@ -5,6 +5,7 @@ require('dotenv').config();
 const app = express();
 const mongoose = require('mongoose');
 const oilRoutes = require('./routes/oils');
+const userRoutes = require('./routes/user');
 
 //middleware
 app.use(express.json())
@@ -16,12 +17,13 @@ app.use('/', (req, res, next) => {
 
 //route
 app.use('/api/oils', oilRoutes)
+app.use('/api/user', userRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         //listen for request
         app.listen(process.env.PORT, () => {
-            console.log('wada hutto');
+            console.log('Server is working');
         })
 
 
