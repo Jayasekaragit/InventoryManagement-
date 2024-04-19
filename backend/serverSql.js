@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mysql from 'mysql'
 import cors from 'cors'
+// import fs from ('fs');
 // const cors = require('cors')
 import multer from 'multer'
 
@@ -21,7 +22,8 @@ app.use(cors())
 // //req of content type
 // app.use(express.json())
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
+    connectionLimit:100,
     host:"localhost",
     user:"root",
     password:"",
@@ -40,6 +42,20 @@ app.get('/users',(req,res)=>{
         }
         console.log(res.json(data))
         return res.json(data)
+       
+        
+    })
+})
+
+app.get('/cashierdash',(req,res)=>{
+    const ProductQ = "SELECT * FROM `Products`"
+    db.query(ProductQ,(err,data)=>{
+        if(err){
+            return res.json(err)
+        }
+        // console.log(res.json(data))
+        // const Newdata=  res.json(data)
+        return res.json(data)   
     })
 })
 
